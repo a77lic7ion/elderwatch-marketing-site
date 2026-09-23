@@ -253,6 +253,12 @@
   .f-legal{margin-top:18px; font-size:12px; font-weight:600; opacity:.92}
   .f-legal-sub{margin:6px auto 0; max-width:660px; font-size:11px; line-height:1.5; opacity:.7}
 
+  .who{display:grid}
+  .who>div{padding:13px 0; border-top:1px solid var(--line)}
+  .who>div:first-child{border-top:none; padding-top:0}
+  .who b{font-family:"Plus Jakarta Sans",sans-serif; font-size:15px; color:var(--ink)}
+  .who span{display:block; color:var(--ink-2); font-size:14.5px; margin-top:3px}
+
   @media (max-width:1000px){
     .hero-grid,.grid-2,.grid-3,.grid-4,.pilot{grid-template-columns:1fr}
     .tiles{grid-template-columns:repeat(3,1fr)}
@@ -283,6 +289,7 @@
       <a href="#records">Records</a>
       <a href="#groups">Groups</a>
       <a href="#privacy">Privacy</a>
+      <a href="#security">Security</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="https://elderwatch-new.vercel.app/admin">Staff sign in</a>
@@ -558,6 +565,37 @@
           <img src="assets/phone-unpaired.png" alt="The phone's screen after an administrator unpaired it: This Phone Has Been Unpaired">
         </div>
         <p class="caption" style="text-align:center">The phone after it's unpaired.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section id="security">
+    <div class="wrap">
+      <p class="eyebrow">Security</p>
+      <h2 style="max-width:26ch">Your residents' information stays yours.</h2>
+      <p class="lede" style="margin-top:14px">A plain-English picture of who can see what — and why nobody else can.</p>
+
+      <div class="grid-2" style="margin-top:30px; align-items:start">
+        <div>
+          <div class="k" style="margin-bottom:12px">Who can see what</div>
+          <div class="who">
+            <div><b>A resident, on their own phone</b><span>Their own check-in only. They can say they're up, or ask for help — and see whether help is coming.</span></div>
+            <div><b>A carer, at one home</b><span>Only the residents in their own home. The system refuses the rest — not just the screen.</span></div>
+            <div><b>A group manager</b><span>Only the homes you hand to them. Homes outside their group stay closed.</span></div>
+            <div><b>You, at head office</b><span>Every home — and you decide who gets access to what. Nobody can grant themselves more.</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="k" style="margin-bottom:12px">Why that keeps your information safe</div>
+          <div style="display:grid; gap:14px">
+            <div class="oneliner">Access is decided by the central system on every single request — not by the app on the phone. A carer cannot widen their own access.</div>
+            <div class="oneliner">The phones hold no copy of your residents' details, so a lost or stolen phone cannot leak them.</div>
+            <div class="oneliner">Staff passwords are hashed, never stored in readable form, and repeated wrong attempts are rate-limited.</div>
+            <div class="oneliner">Everything travels encrypted, and every check-in, alert and visit is time-stamped to a name.</div>
+            <div class="oneliner">We attacked it ourselves, the way an outsider would: no resident names, no check-ins, no staff accounts — and nothing could be changed.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
