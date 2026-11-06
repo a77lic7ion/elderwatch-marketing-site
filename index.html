@@ -84,61 +84,58 @@
   .hero-facts li{font-size:13.5px; color:var(--ink-3); display:flex; align-items:center; gap:7px}
   .hero-facts li::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--green-lt)}
 
-  /* the resident's phone — mirrors the real app screen */
+  /* the resident's phone — mirrors the current resident app screen exactly
+     (native APK layout: logo bar only, left-aligned greeting, two solid
+     stacked cards with icons, tinted panels with 2px borders, and a
+     full-screen colour flash on tap — no language toggle, no bell, no undo) */
   .phone{width:min(300px,90vw); margin-inline:auto; border-radius:40px; padding:11px; background:linear-gradient(180deg,#2A332E,#161B18); box-shadow:0 24px 60px -22px rgba(15,23,43,.5), 0 0 0 1px rgba(255,255,255,.06) inset}
-  .scr{background:#1A221E; border-radius:30px; overflow:hidden; color:#F7FAFC; font-family:"Atkinson Hyperlegible","Plus Jakarta Sans",sans-serif; min-height:470px; display:flex; flex-direction:column}
-  .scr-bar{display:flex; align-items:center; justify-content:space-between; padding:12px 16px; flex:none}
-  .scr-logo{display:flex; align-items:center; gap:8px}
-  .scr-logo img{width:30px; height:30px}
-  .scr-logo span{font-size:15.5px; font-weight:700}
-  .scr-tools{display:flex; align-items:center; gap:7px}
-  .bell{display:inline-flex; align-items:center; gap:6px; border:0; border-radius:8px; padding:6px 10px; font-family:Inter,sans-serif; font-size:13px; font-weight:700; background:var(--green); color:#fff; cursor:pointer}
-  .bell.off{background:rgba(255,255,255,.1); color:rgba(255,255,255,.7)}
-  .bell svg{width:16px; height:16px}
-  .lang{display:inline-flex; border-radius:8px; padding:2px; background:rgba(255,255,255,.1)}
-  .lang button{border:0; border-radius:6px; padding:6px 11px; font-family:Inter,sans-serif; font-size:13.5px; font-weight:700; background:transparent; color:rgba(255,255,255,.6); cursor:pointer}
-  .lang button.on{background:var(--green); color:#fff}
-  .scr-main{padding:0 18px 16px; flex:1; display:flex; flex-direction:column; justify-content:center}
-  .scr-greet{margin:0; font-size:27px; line-height:1.1; font-weight:700; text-align:center}
-  .scr-late{margin:0 0 12px; padding:11px 13px; border-radius:12px; background:rgba(245,158,11,.16); border:1px solid rgba(245,158,11,.42); color:#FCD34D; font-family:Inter,sans-serif; font-size:14.5px; font-weight:700; text-align:center}
-  .taps{display:grid; gap:13px; margin-top:18px}
-  .tap{border:none; border-radius:16px; padding:19px; text-align:center; cursor:pointer; width:100%; color:#fff; font-family:inherit; transition:filter .16s ease, transform .12s ease}
+  .scr{position:relative; background:#1A221E; border-radius:30px; overflow:hidden; color:#F7FAFC; font-family:"Atkinson Hyperlegible","Plus Jakarta Sans",sans-serif; min-height:470px; display:flex; flex-direction:column}
+  .scr-bar{display:flex; align-items:center; gap:8px; padding:12px 20px; flex:none}
+  .scr-bar img{width:32px; height:32px}
+  .scr-bar span{font-size:16px; font-weight:700}
+  .scr-main{padding:0 20px 20px; flex:1; display:flex; flex-direction:column; justify-content:center}
+  .scr-greet{margin:0 0 16px; font-size:27px; line-height:1.1; font-weight:700; text-align:left}
+  .taps{display:flex; flex-direction:column; gap:12px; flex:1; min-height:300px}
+  .tap{border:none; border-radius:20px; padding:18px; text-align:center; cursor:pointer; width:100%; color:#fff; font-family:inherit; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:filter .16s ease, transform .12s ease}
   .tap:hover{filter:brightness(1.07)}
   .tap:active{transform:translateY(1px)}
-  .tap b{display:block; font-size:21px; font-weight:700}
-  .tap span{display:block; font-family:Inter,sans-serif; font-size:13.5px; font-weight:500; opacity:.92; margin-top:5px}
-  .tap-ok{background:var(--green); box-shadow:0 4px 20px rgba(21,122,76,.4)}
-  .tap-help{background:#B3123A; box-shadow:0 4px 20px rgba(179,18,58,.42)}
-  .scr-foot{text-align:center; padding:0 18px 18px; font-family:Inter,sans-serif; font-size:12.5px; color:#8E9A94; min-height:16px; flex:none}
-  /* first-run welcome + language */
-  .welcome{text-align:center; padding-top:6px}
-  .welcome .ring{width:70px; height:70px; border-radius:50%; background:var(--green); display:grid; place-items:center; margin:0 auto 16px}
-  .welcome .ring svg{width:38px; height:38px}
-  .welcome h4{font-size:25px; font-weight:700; margin:0}
-  .welcome p{margin:10px 0 0; font-family:Inter,sans-serif; font-size:15px; opacity:.75; color:#F7FAFC; max-width:none}
-  .lp{margin-top:18px}
-  .lp-t{font-family:Inter,sans-serif; font-size:16px; font-weight:600}
-  .lp-s{font-family:Inter,sans-serif; font-size:13.5px; opacity:.6; margin-top:2px}
-  .lp-btns{display:flex; gap:9px; justify-content:center; margin-top:12px; flex-wrap:wrap}
-  .lp-btns button{border-radius:12px; padding:12px 18px; font-family:Inter,sans-serif; font-size:15.5px; font-weight:700; cursor:pointer; background:rgba(255,255,255,.08); color:#F7FAFC; border:1px solid rgba(255,255,255,.16)}
-  .lp-btns button.on{background:var(--green); border-color:var(--green); color:#fff}
-  .go{margin-top:18px; width:100%; padding:18px; border:0; border-radius:16px; background:var(--green); color:#fff; font-family:inherit; font-size:19px; font-weight:700; cursor:pointer; box-shadow:0 4px 20px rgba(21,122,76,.4)}
-  /* confirmed / help panels */
-  .done{text-align:center; padding:8px 2px 2px}
-  .done .ring{width:74px; height:74px; border-radius:50%; background:var(--green); display:grid; place-items:center; margin:0 auto 16px}
-  .done .ring svg{width:40px; height:40px}
-  .done h4{font-size:26px; font-weight:700; color:#7BE6A4; margin:0}
-  .done p{margin:10px 0 0; font-size:16.5px; opacity:.78; color:#F7FAFC; font-family:Inter,sans-serif; max-width:none}
-  .done .when{margin-top:7px; font-family:Inter,sans-serif; font-size:12.5px; color:#8E9A94}
-  .done .undo{margin-top:16px; font-family:Inter,sans-serif; font-size:13.5px; font-weight:600; color:#C9D3CE; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:10px 20px; cursor:pointer}
-  .done .undo:hover{background:rgba(255,255,255,.15)}
-  .helppanel{text-align:center; padding:20px 16px; border-radius:16px; background:rgba(179,18,58,.16); border:1px solid rgba(179,18,58,.42)}
-  .helppanel h4{font-size:23px; color:#fff; margin:0}
-  .helppanel p{margin:9px 0 0; font-family:Inter,sans-serif; font-size:15px; color:#F3C3CE; max-width:none}
-  .helppanel .when{margin-top:6px; font-family:Inter,sans-serif; font-size:12.5px; color:#C793A0}
-  .helppanel .acts{margin-top:14px; display:flex; gap:9px; justify-content:center; flex-wrap:wrap}
-  .helppanel button{font-family:Inter,sans-serif; font-size:13.5px; font-weight:600; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:10px 15px; cursor:pointer}
-  .helppanel button.call{background:#fff; color:#B3123A; border-color:#fff}
+  .tap svg{width:44px; height:44px; stroke:#fff}
+  .tap b{display:block; font-size:29px; line-height:1.05; font-weight:700; margin-top:8px}
+  .tap span{display:block; font-family:Inter,sans-serif; font-size:14px; font-weight:500; opacity:.92; margin-top:4px}
+  .tap-ok{flex:3; background:#157A4C; box-shadow:0 4px 20px rgba(21,122,76,.4)}
+  .tap-ok svg{width:50px; height:50px}
+  .tap-help{flex:2; background:#C53030; box-shadow:0 4px 20px rgba(197,48,48,.4)}
+  .tap-help svg{width:40px; height:40px}
+  .tap-help b{font-size:26px}
+  /* first-run language screen — matches the real picker (cream bg, two green buttons) */
+  .langpick{background:#FAF7F2; color:#1C1917; border-radius:28px; padding:34px 26px; text-align:center; min-height:470px; display:flex; flex-direction:column; justify-content:center}
+  .langpick h4{font-size:24px; font-weight:700; color:#1C1917; margin:0}
+  .langpick .sub{font-size:13.5px; color:#78716C; margin:4px 0 30px}
+  .langpick .lp-btns{display:flex; flex-direction:column; gap:16px}
+  .langpick .lp-btns button{border:0; border-radius:14px; min-height:56px; font-family:Inter,sans-serif; font-size:18px; font-weight:700; color:#fff; background:#22C55E; cursor:pointer; box-shadow:0 6px 18px -8px rgba(34,197,94,.7)}
+  .langpick .lp-btns button:hover{filter:brightness(1.06)}
+  /* checked-in — green-bordered panel, then a red "I need help" card below (like the app) */
+  .okview,.helpview{flex:1; display:flex; flex-direction:column; justify-content:center}
+  .okpanel{border-radius:20px; background:rgba(21,122,76,.15); border:2px solid #157A4C; padding:20px; text-align:left}
+  .okpanel h4{font-size:26px; font-weight:700; color:#157A4C; margin:0}
+  .okpanel p{margin:8px 0 0; font-family:Inter,sans-serif; font-size:17px; opacity:.9; color:#F7FAFC; max-width:none}
+  .okpanel .when{margin-top:8px; font-family:Inter,sans-serif; font-size:15px; opacity:.7; color:#F7FAFC}
+  .helpagain{display:flex; align-items:center; justify-content:center; margin-top:12px; border:none; border-radius:20px; min-height:74px; padding:18px; width:100%; background:#C53030; color:#fff; font-family:inherit; font-size:22px; font-weight:700; cursor:pointer}
+  .helpagain:hover{filter:brightness(1.07)}
+  /* help sent — red-bordered panel, then the green "I'm fine after all" pill */
+  .helppanel{border-radius:20px; background:rgba(197,48,48,.15); border:2px solid #C53030; padding:20px; text-align:left}
+  .helppanel h4{font-size:26px; font-weight:700; color:#C53030; margin:0}
+  .helppanel p{margin:8px 0 0; font-family:Inter,sans-serif; font-size:17px; opacity:.9; color:#F7FAFC; max-width:none}
+  .helppanel .when{margin-top:8px; font-family:Inter,sans-serif; font-size:15px; opacity:.7; color:#F7FAFC}
+  .helppanel .acts{margin-top:24px; text-align:center}
+  .cancelpill{display:inline-block; border:none; border-radius:999px; background:#157A4C; color:#fff; font-family:Inter,sans-serif; font-size:17px; font-weight:700; padding:12px 24px; cursor:pointer}
+  .cancelpill:hover{filter:brightness(1.07)}
+  /* full-screen colour flash on tap — like the real app (1.1s, big icon) */
+  .flash{position:absolute; inset:0; display:none; align-items:center; justify-content:center; z-index:5; cursor:pointer}
+  .flash.on{display:flex}
+  .flash svg{width:150px; height:150px; stroke:#fff}
+  .flash.ok{background:#157A4C}
+  .flash.help{background:#C53030}
 
   .dark{background:var(--dark); color:#fff}
   .dark h2,.dark h3,.dark h4,.dark .eyebrow{color:#fff}
@@ -316,21 +313,20 @@
       <div>
         <div class="phone" role="img" aria-label="The resident's screen: a green I'm OK button and a red I need help button">
           <div class="scr">
-            <div class="scr-bar">
-              <div class="scr-logo"><img src="assets/elderwatch-logo.png" alt=""><span>ElderWatch</span></div>
-              <div class="scr-tools">
-                <span class="bell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>07:00</span>
-                <span class="lang"><button type="button" class="on">EN</button><button type="button">AF</button></span>
-              </div>
-            </div>
+            <div class="scr-bar"><img src="assets/elderwatch-logo.png" alt=""><span>ElderWatch</span></div>
             <div class="scr-main">
               <h2 class="scr-greet">Good morning, Grace</h2>
               <div class="taps">
-                <button class="tap tap-ok" type="button"><b>I'm OK</b><span>Tap once. Sister will know.</span></button>
-                <button class="tap tap-help" type="button"><b>I need help</b><span>Sister will come to you.</span></button>
+                <button class="tap tap-ok" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg>
+                  <b>I'm OK</b><span>Tap once. Sister will know.</span>
+                </button>
+                <button class="tap tap-help" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M10 10V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M13 10.5V5.5a1.5 1.5 0 0 1 3 0v6"/><path d="M16 12.5V8a1.5 1.5 0 0 1 3 0v6.5A6.5 6.5 0 0 1 12.5 21H11a5 5 0 0 1-4.2-2.3L4 14.5a1.6 1.6 0 0 1 2.6-1.9L7 13.5"/></svg>
+                  <b>I need help</b><span>Sister will come to you.</span>
+                </button>
               </div>
             </div>
-            <div class="scr-foot">Thirty seconds, once a day.</div>
           </div>
         </div>
       </div>
@@ -374,15 +370,9 @@
           <div class="demo-label" style="text-align:center">The resident's phone</div>
           <div class="phone">
             <div class="scr">
-              <div class="scr-bar">
-                <div class="scr-logo"><img src="assets/elderwatch-logo.png" alt=""><span>ElderWatch</span></div>
-                <div class="scr-tools">
-                  <button class="bell" id="bellBtn" type="button" aria-label="Daily reminder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span id="bellLabel">07:00</span></button>
-                  <span class="lang"><button type="button" id="langEn" class="on">EN</button><button type="button" id="langAf">AF</button></span>
-                </div>
-              </div>
+              <div class="scr-bar"><img src="assets/elderwatch-logo.png" alt=""><span>ElderWatch</span></div>
               <div class="scr-main" id="demoBody"></div>
-              <div class="scr-foot" id="demoNote"></div>
+              <div class="flash" id="demoFlash"></div>
             </div>
           </div>
 
@@ -564,16 +554,19 @@
 
 <script>
 /* ============================================================
-   The interactive phone runs the app's REAL workflow and wording:
+   The interactive phone runs the app's REAL workflow and wording,
+   matching the current resident app exactly:
 
-     linked  -> "Welcome, Grace." + language + Continue
-     morning -> greeting + two buttons (+ the late prompt)
-     ok      -> "Thank you, Grace." (stays until tomorrow)
-     help    -> "Help is on its way."
+     linked  -> "Choose your language / Kies jou taal" (pairing)
+     morning -> left-aligned greeting + two solid cards
+     ok      -> green panel + red "I need help" card below
+     help    -> red panel + green "I'm fine after all" pill
 
-   English and Afrikaans are the app's own strings, the reminder
-   bell toggles like the real one, and the dashboard tiles
-   underneath react to every press. State is in memory only.
+   No language toggle, no reminder bell, no undo on the screen —
+   those were removed from the app. Every tap flashes the whole
+   screen green or red for a moment, like the app does. The
+   dashboard tiles underneath react to every press. State lives
+   in memory only.
    ============================================================ */
 (function () {
   var ME = 'Grace', CUTOFF = '09:15', HOME = 'Willow Cottage';
@@ -584,34 +577,22 @@
       okLabel: "I'm OK", okSub: 'Tap once. Sister will know.',
       helpLabel: 'I need help', helpSub: 'Sister will come to you.',
       okTitle: 'Thank you, ' + ME + '.', okBody: "Sister knows you're up. Have a lovely day.",
-      okTime: function (t) { return 'Checked in at ' + t; }, undo: 'Undo',
+      okTime: function (t) { return 'Checked in at ' + t; },
       helpTitle: 'Help is on its way.', helpBody: 'Sister has been told.',
       helpTime: function (t) { return 'Sent at ' + t; },
-      cancel: "I'm fine after all", call: 'Call Sister', callSub: 'On duty',
-      late: "It's after " + CUTOFF + ". Please tap I'm OK.",
-      linkedTitle: 'Welcome, ' + ME + '.', linkedBody: 'Tap the green button every morning.',
-      go: 'Continue', langTitle: 'Choose your language', langSub: 'Kies jou taal',
-      footMorning: 'Tap the green button every morning.',
-      footOk: 'This stays on the screen until tomorrow morning.',
-      footHelp: 'The sisters have it on the board.',
-      footLinked: 'First morning only: pick a language, then it is one button a day.'
+      cancel: "I'm fine after all",
+      langTitle: 'Choose your language', langSub: 'Kies jou taal'
     },
     af: {
       hello: function (h) { return h < 12 ? 'Goeie môre,' : h < 17 ? 'Goeie middag,' : 'Goeienaand,'; },
       okLabel: 'Ek is reg', okSub: 'Tik een keer. Suster sal weet.',
       helpLabel: 'Ek het hulp nodig', helpSub: 'Suster sal kom.',
       okTitle: 'Dankie, ' + ME + '.', okBody: 'Suster weet jy is op. Geniet jou dag.',
-      okTime: function (t) { return 'Ingeteken om ' + t; }, undo: 'Herstel',
+      okTime: function (t) { return 'Ingeteken om ' + t; },
       helpTitle: 'Hulp is oppad.', helpBody: 'Suster is in kennis gestel.',
       helpTime: function (t) { return 'Gestuur om ' + t; },
-      cancel: 'Ek is tog reg', call: 'Bel Suster', callSub: 'Aan diens',
-      late: 'Dit is na ' + CUTOFF + '. Tik Ek is reg.',
-      linkedTitle: 'Welkom, ' + ME + '.', linkedBody: 'Tik elke oggend die groen knoppie.',
-      go: 'Gaan voort', langTitle: 'Kies jou taal', langSub: 'Choose your language',
-      footMorning: 'Tik elke oggend die groen knoppie.',
-      footOk: 'Dit bly op die skerm tot môreoggend.',
-      footHelp: 'Die susters het dit op die bord.',
-      footLinked: 'Net die eerste oggend: kies \'n taal, dan is dit een knoppie per dag.'
+      cancel: 'Ek is tog reg',
+      langTitle: 'Kies jou taal', langSub: 'Choose your language'
     }
   };
 
@@ -627,11 +608,9 @@
   var WORD = { await: 'Awaiting check-in', ok: 'Checked in OK', none: 'No response', visit: 'In-person visit', help: 'Need help' };
 
   var cardsEl = document.getElementById('demoCards'), bodyEl = document.getElementById('demoBody');
-  var noteEl = document.getElementById('demoNote'), statEl = document.getElementById('demoStatus');
+  var statEl = document.getElementById('demoStatus');
   var alertEl = document.getElementById('alert'), alertTx = document.getElementById('alertText'), alertSub = document.getElementById('alertSub');
   var tHelp = document.getElementById('v-help'), sHelp = document.getElementById('s-help');
-  var bellBtn = document.getElementById('bellBtn'), bellLabel = document.getElementById('bellLabel');
-  var langEn = document.getElementById('langEn'), langAf = document.getElementById('langAf');
   var timers = [], state;
 
   function t() { return T[state.lang]; }
@@ -644,7 +623,7 @@
   function newState() {
     return {
       people: PEOPLE.map(function (p) { return { room: p.room, name: p.name, linked: p.linked, me: !!p.me, status: 'await' }; }),
-      view: 'linked', lang: 'en', remind: true, filter: 'all', late: false
+      view: 'linked', lang: 'en', filter: 'all'
     };
   }
   function visible(p) {
@@ -653,60 +632,65 @@
     return p.status === state.filter;
   }
 
-  /* ---------- the phone ---------- */
+  /* ---------- the phone (mirrors the current app exactly: language screen
+     at pairing, then a left-aligned greeting + two solid cards; checked-in
+     shows a green panel with a red "I need help" card below; help shows a
+     red panel with a green "I'm fine after all" pill; every tap flashes
+     the whole screen in colour, like the app) ---------- */
   function renderPhone() {
     var s = t();
-    bellBtn.classList.toggle('off', !state.remind);
-    bellLabel.textContent = state.remind ? '07:00' : 'OFF';
-    langEn.classList.toggle('on', state.lang === 'en');
-    langAf.classList.toggle('on', state.lang === 'af');
 
     if (state.view === 'linked') {
-      noteEl.textContent = s.footLinked;
       bodyEl.innerHTML =
-        '<div class="welcome">' +
-          '<div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M9 18h6"/><path d="m9.5 10.5 2 2 3.5-4"/></svg></div>' +
-          '<h4>' + s.linkedTitle + '</h4>' +
-          '<p>' + s.linkedBody + '</p>' +
-          '<div class="lp"><div class="lp-t">' + s.langTitle + '</div><div class="lp-s">' + s.langSub + '</div>' +
-            '<div class="lp-btns"><button type="button" data-lang="en" class="' + (state.lang === 'en' ? 'on' : '') + '">English</button>' +
-            '<button type="button" data-lang="af" class="' + (state.lang === 'af' ? 'on' : '') + '">Afrikaans</button></div></div>' +
-          '<button class="go" id="goBtn" type="button">' + s.go + '</button>' +
+        '<div class="langpick">' +
+          '<h4>' + s.langTitle + '</h4>' +
+          '<div class="sub">' + s.langSub + '</div>' +
+          '<div class="lp-btns">' +
+            '<button type="button" data-lang="en">English</button>' +
+            '<button type="button" data-lang="af">Afrikaans</button>' +
+          '</div>' +
         '</div>';
-      bodyEl.querySelectorAll('.lp-btns button').forEach(function (b) {
-        b.addEventListener('click', function () { state.lang = b.getAttribute('data-lang'); render(); });
+      bodyEl.querySelectorAll('.langpick .lp-btns button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          state.lang = b.getAttribute('data-lang');
+          state.view = 'morning';
+          render();
+        });
       });
-      document.getElementById('goBtn').addEventListener('click', function () { state.view = 'morning'; render(); });
       return;
     }
 
     if (state.view === 'ok') {
-      noteEl.textContent = s.footOk;
-      bodyEl.innerHTML = '<div class="done"><div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M9 18h6"/><path d="m9.5 10.5 2 2 3.5-4"/></svg></div>' +
-        '<h4>' + s.okTitle + '</h4><p>' + s.okBody + '</p>' +
-        '<div class="when">' + s.okTime(state.tapTime) + '</div>' +
-        '<button class="undo" id="undoBtn" type="button">' + s.undo + '</button></div>';
-      document.getElementById('undoBtn').addEventListener('click', function () { tap('morning'); });
+      bodyEl.innerHTML =
+        '<div class="okview">' +
+          '<div class="okpanel"><h4>' + s.okTitle + '</h4>' +
+            '<p>' + s.okBody + '</p>' +
+            '<div class="when">' + s.okTime(state.tapTime) + '</div>' +
+          '</div>' +
+          '<button class="helpagain" id="helpAgainBtn" type="button">' + s.helpLabel + '</button>' +
+        '</div>';
+      document.getElementById('helpAgainBtn').addEventListener('click', function () { tap('help'); });
       return;
     }
 
     if (state.view === 'help') {
-      noteEl.textContent = s.footHelp;
-      bodyEl.innerHTML = '<div class="helppanel"><h4>' + s.helpTitle + '</h4><p>' + s.helpBody + '</p>' +
-        '<div class="when">' + s.helpTime(state.tapTime) + '</div>' +
-        '<div class="acts"><button class="call" type="button">' + s.call + ' &middot; ' + s.callSub + '</button>' +
-        '<button id="undoBtn" type="button">' + s.cancel + '</button></div></div>';
-      document.getElementById('undoBtn').addEventListener('click', function () { tap('morning'); });
+      bodyEl.innerHTML =
+        '<div class="helpview">' +
+          '<div class="helppanel"><h4>' + s.helpTitle + '</h4>' +
+            '<p>' + s.helpBody + '</p>' +
+            '<div class="when">' + s.helpTime(state.tapTime) + '</div>' +
+            '<div class="acts"><button class="cancelpill" id="cancelPill" type="button">' + s.cancel + '</button></div>' +
+          '</div>' +
+        '</div>';
+      document.getElementById('cancelPill').addEventListener('click', function () { tap('ok'); });
       return;
     }
 
-    noteEl.textContent = s.footMorning;
     var h = new Date().getHours();
     bodyEl.innerHTML = '<h2 class="scr-greet">' + s.hello(h) + ' ' + ME + '</h2>' +
-      (state.late ? '<div class="scr-late" style="margin-top:14px">' + s.late + '</div>' : '') +
       '<div class="taps">' +
-        '<button class="tap tap-ok" id="okBtn" type="button"><b>' + s.okLabel + '</b><span>' + s.okSub + '</span></button>' +
-        '<button class="tap tap-help" id="helpTapBtn" type="button"><b>' + s.helpLabel + '</b><span>' + s.helpSub + '</span></button>' +
+        '<button class="tap tap-ok" id="okBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg><b>' + s.okLabel + '</b><span>' + s.okSub + '</span></button>' +
+        '<button class="tap tap-help" id="helpTapBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M10 10V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M13 10.5V5.5a1.5 1.5 0 0 1 3 0v6"/><path d="M16 12.5V8a1.5 1.5 0 0 1 3 0v6.5A6.5 6.5 0 0 1 12.5 21H11a5 5 0 0 1-4.2-2.3L4 14.5a1.6 1.6 0 0 1 2.6-1.9L7 13.5"/></svg><b>' + s.helpLabel + '</b><span>' + s.helpSub + '</span></button>' +
       '</div>';
     document.getElementById('okBtn').addEventListener('click', function () { tap('ok'); });
     document.getElementById('helpTapBtn').addEventListener('click', function () { tap('help'); });
@@ -759,11 +743,23 @@
   function tap(kind) {
     var p = mine();
     state.view = kind;
-    state.late = false;
     if (kind === 'ok') { p.status = 'ok'; state.tapTime = clock(); }
     else if (kind === 'help') { p.status = 'help'; state.alertTime = clock(); state.tapTime = clock(); }
     else { p.status = 'await'; }
+    flash(kind);
     render();
+  }
+
+  /* full-screen colour flash on tap — green #157A4C for OK, red #C53030 for
+     help, big white icon, 1.1s, exactly like the app */
+  function flash(kind) {
+    var f = document.getElementById('demoFlash');
+    if (!f) return;
+    f.className = 'flash on ' + (kind === 'ok' ? 'ok' : 'help');
+    f.innerHTML = kind === 'ok'
+      ? '<svg viewBox="0 0 48 48" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 25l10 10 18-22"/></svg>'
+      : '<svg viewBox="0 0 48 48" fill="none" stroke-width="5" stroke-linecap="round"><path d="M24 10v18"/><path d="M24 36v2"/></svg>';
+    later(function () { f.className = 'flash'; }, 1100);
   }
 
   function play() {
@@ -784,7 +780,6 @@
       silent.status = 'visit'; renderBoard();
       var el = cardsEl.querySelector('[data-room="' + silent.room + '"]'); if (el) el.classList.add('flash');
     }, t1 + 1600);
-    later(function () { if (mine().status === 'await') { state.late = true; renderPhone(); } }, t1 + 2400);
   }
 
   function reset() { clearTimers(); state = newState(); syncChips(); render(); }
@@ -796,9 +791,6 @@
 
   document.getElementById('playBtn').addEventListener('click', play);
   document.getElementById('resetBtn').addEventListener('click', reset);
-  bellBtn.addEventListener('click', function () { state.remind = !state.remind; renderPhone(); });
-  langEn.addEventListener('click', function () { state.lang = 'en'; render(); });
-  langAf.addEventListener('click', function () { state.lang = 'af'; render(); });
   document.querySelectorAll('.chip').forEach(function (c) {
     c.addEventListener('click', function () { state.filter = c.getAttribute('data-f'); syncChips(); renderBoard(); });
   });
